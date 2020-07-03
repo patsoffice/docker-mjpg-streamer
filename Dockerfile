@@ -5,7 +5,8 @@ RUN apk --no-cache add cmake
 RUN apk --no-cache add libjpeg-turbo-dev
 RUN apk --no-cache add linux-headers
 RUN apk --no-cache add openssl
-RUN [[ "${TARGETPLATFORM:6}" != "amd64" ]] && apk --no-cache add raspberrypi-dev || true
+# Raspberry Pi camera support does not currently work for arm64 (and doesn't exist for amd64)
+RUN [[ "${TARGETPLATFORM:6}" != "arm64" ]] && apk --no-cache add raspberrypi-dev || true
 
 RUN wget -qO- https://github.com/jacksonliam/mjpg-streamer/archive/master.tar.gz | tar xz
 

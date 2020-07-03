@@ -69,4 +69,4 @@ The steam URL needs to be able to connect from your web browser but the snapshot
 MIT
 
 [travis-image]: https://travis-ci.com/patsoffice/docker-mjpg-streamer.svg
-[travis-url]: https://travis-ci.org/patsoffice/docker-mjpg-streamer
+[travis-url]: https://travis-ci.com/patsoffice/docker-mjpg-streamer
