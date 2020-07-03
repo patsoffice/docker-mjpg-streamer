@@ -1,21 +1,21 @@
 before_install:
-    - curl -sf https://test.docker.com | sh
-    - docker --version
+  - curl -sf https://test.docker.com | sh
+  - docker --version
 
-  dist: bionic
+dist: bionic
 
-  language: bash
+language: bash
 
-  env:
-    global:
-      - DOCKER_CLI_EXPERIMENTAL=enabled
-      - PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+env:
+  global:
+    - DOCKER_CLI_EXPERIMENTAL=enabled
+    - PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
 
-  script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker run --privileged linuxkit/binfmt:v0.7
-    - docker buildx create --use
-    - docker buildx build
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker run --privileged linuxkit/binfmt:v0.7
+  - docker buildx create --use
+  - docker buildx build
       --platform $PLATFORMS
       --build-arg "VERSION=$TRAVIS_BRANCH"
       --file "Dockerfile"
