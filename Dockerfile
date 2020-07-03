@@ -1,12 +1,14 @@
 FROM alpine:latest as build
 
+ARG TARGETPLATFORM
+ARG VERSION
+
 RUN apk --no-cache add build-base
 RUN apk --no-cache add cmake
 RUN apk --no-cache add libjpeg-turbo-dev
 RUN apk --no-cache add linux-headers
 RUN apk --no-cache add openssl
 # Raspberry Pi camera support does not currently work for arm64 (and doesn't exist for amd64)
-RUN echo "TP: ${TARGETPLATFORM}"
 RUN [[ "${TARGETPLATFORM}" != "linux/arm64" ]] && apk --no-cache add raspberrypi-dev || true
 
 RUN wget -qO- https://github.com/jacksonliam/mjpg-streamer/archive/master.tar.gz | tar xz
