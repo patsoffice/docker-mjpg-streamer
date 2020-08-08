@@ -9,7 +9,7 @@ This is a Dockerfile to set up [mjpg-streamer](https://github.com/jacksonliam/mj
 - arm/v7
 - arm64
 
-# Tested devices
+## Tested devices
 
 | Device              | Working? |
 | ------------------- | -------- |
@@ -21,7 +21,7 @@ This is a Dockerfile to set up [mjpg-streamer](https://github.com/jacksonliam/mj
 
 Please let me know if you test any others, would love to increase the compatibility list!
 
-# Usage
+## Usage
 
 ```shell
 $ docker run \
@@ -30,14 +30,14 @@ $ docker run \
   patsoffice/mjpg-streamer
 ```
 
-# Environment Variables
+## Environment Variables
 
 | Variable                 | Description                    | Default Value      |
 | ------------------------ | ------------------------------ | ------------------ |
 | CAMERA_DEV               | The camera device node         | `/dev/video0`      |
 | MJPEG_STREAMER_INPUT     | Flags to pass to mjpg_streamer | `-y -n -r 640x480` |
 
-# Webcam integration
+## Webcam integration
 
 ## USB Webcam
 
