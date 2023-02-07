@@ -23,11 +23,27 @@ Please let me know if you test any others, would love to increase the compatibil
 
 ## Usage
 
+Interactive
+
 ```shell
-$ docker run \
+docker run -it --rm \
   --device=/dev/video0 \
   -p 8080:8080 \
   patsoffice/mjpg-streamer
+```
+
+Docker-Compose.yml
+
+```yaml
+mjpg-streamer:
+   restart: always
+   image: patsoffice/mjpg-streamer
+   devices:
+     - /dev/video0
+   ports:
+     - 8080:8080
+   environment:
+     - MJPEG_STREAMER_INPUT="-y -n -r 640x480"
 ```
 
 ## Environment Variables
