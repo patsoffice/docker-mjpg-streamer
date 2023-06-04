@@ -6,7 +6,7 @@ fi
 
 if [ -c "${CAMERA_DEV}" ]; then
   exec mjpg_streamer \
-    -i "/usr/local/lib/mjpg-streamer/${MJPEG_STREAMER_INPUT} -d {$CAMERA_DEV}" \
+    -i "/usr/local/lib/mjpg-streamer/${MJPEG_STREAMER_INPUT} -d ${CAMERA_DEV}" \
     -o "/usr/local/lib/mjpg-streamer/output_http.so -w /usr/local/share/mjpg-streamer/www -p 8080"
 else
   echo "camera device, ${CAMERA_DEV}, does not exist"
